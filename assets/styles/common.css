@@ -1,0 +1,186 @@
+/* nav */
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	font-size: 2rem;
+	width: 95%;
+	text-align: center;
+}
+nav a {
+	width: 14rem;
+	padding: 20px;
+	border: 2px solid black;
+	font-style: bold;
+	text-decoration: none;
+	color: white;
+	border-radius: 20px;
+	text-align: center;
+}
+nav button {
+	height: 2.5rem;
+	border-radius: 10px;
+}
+.navright {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#print {
+	margin-top: .4rem;
+}
+nav > a {
+	background: green;
+}
+nav > a > span {
+	text-overflow: ellipsis;
+}
+nav > a:hover {
+	opacity: 70%;
+	border: 4px solid yellow;
+}
+nav button:hover {
+	font-weight: bold;
+	background-color: lime;
+	border: 2px solid darkgreen;
+}
+
+#schoolinfo {
+	font-weight: bold;
+	color: black;
+	font-size: 1.8rem;
+	padding: 1.39rem;
+	text-align: center;
+	background: tan;
+	margin: 1.11rem;
+	
+	max-width: 90%;
+}
+@media (max-width: 1240px) {
+	nav {
+		font-size: 1.5rem;
+	}
+	nav a {
+		width: 10rem;
+	}
+	nav button {
+		height: 1.5rem;
+	}
+	nav > a {
+		background: green;
+	}
+	nav > a > span {
+		text-overflow: ellipsis;
+	}
+}
+
+/* summary */
+summary {
+	background: white;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 15px;
+	margin-left: 50px;
+	width: 20rem;
+	max-height: 20rem;
+	position: relative;
+	font-size: 1.5rem;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
+
+summary > button {
+	margin: 0 auto;
+	width: 10rem;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(-15px);
+	font-weight: bold;
+}
+summary > button:hover {
+	background-color: lime;
+}
+summary.final {
+	max-height: 40rem;
+    width: 25rem;
+}
+summary h3 {
+	text-align: center;
+}
+.annual {
+	background: lightgreen;
+}
+.total {
+	background: lightblue;
+}
+.annual span,
+.total span {
+	margin-left: 30px;
+}
+.report {
+	background: white;
+}
+
+/* dialog */
+#dialog {
+	position: absolute;
+	left: 60px;
+	top: 20px;
+	width: 90%;
+	height: 90%;
+	background: lightgrey;
+    font-weight: bold;
+    overflow-y:auto;
+	display: none;
+}
+#dialog > div {
+    padding: 10px;
+}
+
+.aboutX {
+    margin: 10px 10px 0 0;
+	float: right;
+    padding: 10px;
+	background: white;
+    font-size: 1.5rem;
+}
+.aboutX:hover {
+    background-color: lightgreen;
+}
+#homedialog {
+	display: none;
+	width: 300px;
+	height: 130px;
+	background: white;
+	border: 2px solid black;
+	position: absolute;
+	left: 50px;
+	top: 50px;
+}
+#homedialog p {
+	margin-left: 30px;
+}
+#homedialogbuttons {
+	display: flex;
+	justify-content: space-around;
+}
+
+.question {
+	font-size: 1.8rem;
+	color: red;
+}
+
+
+/* when #dialog showing */
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* for about */
+.resources {
+	list-style: none;
+}
+.resources > li {
+	margin-left: 2rem;
+}

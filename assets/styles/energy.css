@@ -1,0 +1,192 @@
+body {
+	background: rgb(95, 146, 223);
+	margin: .55rem;
+	font-size: 18px;
+}
+container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+container label {
+	padding: .55rem;
+}
+container input {
+	margin-right: .27rem;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+}
+form label {
+	font-size: 1.5rem;
+}
+
+
+
+.far,
+.fas {
+	color: yellow;
+}
+
+#dataentry {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	/* flex-wrap: wrap; */
+	margin: -1rem 0 0 0;
+}
+#dataentry > table {
+	/* allows top margin for wrapped items */
+	margin-top: 1rem;
+}
+
+.rowLabel {
+	text-align: right;
+	padding-right: .55rem;
+	border: 2px solid black;
+	background: wheat;
+	font-size: 1.2rem;
+	border: none;
+	font-weight: bold;
+	width: 10rem !important;
+}
+
+
+.backbox {
+	border: 2px solid black;
+	color: white;
+	background: rgba(169, 169, 169, 0.301);
+	font-weight: bold;
+	font-size: 1.11rem;
+	width: 80%;
+	padding: .27rem;
+}
+
+span.calc {
+	margin-left: .27rem;
+	width: 80%;
+}
+
+.edata {
+	border-collapse: collapse;
+}
+.edata thead th.colhead {
+	font-size: 1.2em;
+	background-color: wheat;
+}
+.edata tbody td.highlight {
+	background-color: rgba(247, 238, 119, 0.5);
+}
+
+
+
+.radioVert {
+	display: flex;
+	flex-direction: column;
+	margin-left: .27rem;
+}
+.radioVert > * {
+	min-width: 8.33rem;
+}
+
+.bills [type="number"] {
+	margin-left: 1rem;
+	font-size: 1.5rem;
+	width: 10rem;
+}
+.tabedge {
+	width: 0.1rem;
+}
+
+
+
+.edata {
+	border-collapse: separate;
+	border-spacing: 0 .3rem;
+}
+
+th {
+	text-align: center;
+}
+
+.edata td {
+	padding: 0 .3rem;
+}
+
+.energy {
+	background-color: rgb(54, 54, 252);
+	border: 2px dashed white;
+}
+
+
+table.second {
+	margin-left: .8rem;
+}
+.hidable {
+	display: none;
+}
+
+.one {
+	height: 12rem;
+	min-width: 10rem;
+}
+.two {
+	height: 4rem;
+	min-width: 10rem;
+}
+.three {
+	height: 6rem;
+	min-width: 10rem;
+}
+
+@media (max-width: 1240px) {
+
+	body {
+		font-size: 16px;
+	}
+
+	#dataentry {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items:baseline;
+
+	}
+	#dataentry > * {
+		/* allows top margin for wrapped items */
+		margin-top: 0;
+	}
+	.hidable {
+		display: block;
+	}
+	#dataentry > .second {
+		margin-top: 2em;
+	}
+	td.rowLabel {
+		position: relative;
+	}
+	
+	table.second td.rowLabel.one > span {
+		position: absolute;
+		top: 45%;
+		right: 2%;
+		/* background-color: green; */
+	}
+	table.second td.rowLabel.two > span {
+		position: absolute;
+		top: 32%;
+		right: 2%;
+		/* background-color: green; */
+	}
+	table.second td.rowLabel.three > span {
+		position: absolute;
+		top: 18%;
+		right: 2%;
+		/* background-color: green; */
+	}
+}

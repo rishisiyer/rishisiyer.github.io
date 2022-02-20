@@ -1,0 +1,118 @@
+body {
+	background: rgb(95, 146, 223);
+	margin: 10px;
+	font-size: 18px;
+}
+
+/* h1 {
+	font-size: 2.4em;
+}
+h2 {
+	font-size: 2em;
+	text-align: center;
+} */
+h1 {
+	text-align: center; 
+}
+container {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+form label {
+	padding: 10px;
+	font-size: 1.4rem;
+}
+form label:hover {
+	background-color: rgb(237, 162, 240);
+}
+form input {
+	margin-right: 1rem;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+}
+
+.far,
+.fas {
+	color: yellow;
+}
+#submits {
+	width: 90vw;
+}
+#submits > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.submitbutton {
+	margin-top: 1em;
+	background: green;
+	color: white;
+	font-size: 1.5em;
+	border-radius: 10px;
+	width: 20rem;
+	height: 5rem;
+	margin: 40px 40px auto;
+	text-align: center;
+	opacity: 0;
+}
+
+.submitbutton:hover {
+	color: black;
+	background: lightgreen;
+	font-weight: bold;
+}
+.submitbutton:hover .icon {
+	color: black;
+}
+
+footer {
+	/* position: fixed; */
+	width: 100vw;
+	margin-top: 1rem;
+	/* bottom: 100px; */
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+footer > * {
+	min-width: 25vw;
+	align-self: baseline;
+}
+
+footer > div {
+	font-size: 1.2rem;
+	max-width: 40%;
+}
+footer > div > h2 {
+	font-size: 1.5rem;
+}
+
+#selector {
+	opacity: 0;
+}
+
+#selector select {
+	width: 20rem;
+}
+#selector h2 {
+	font-size: 1.4rem;
+}
+#selector .chosen-container-single {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#selector .chosen-single {
+	font-size: 1.4rem;
+}
+#selector .chosen-drop {
+	width: 175%;
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Prevent Caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <title>Energy</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="assets/styles/energy.css" />
+  <link rel="stylesheet" type="text/css" href="assets/styles/common.css" />
+
+  <script src="https://kit.fontawesome.com/1824f337f5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <container>
+    <nav>
+      <button class="home">Home</button>
+      <a class="transport" href="transport.html">
+        <span><i class="fas fa-bus"></i><br />Transportation</span>
+      </a>
+      <a class="energy" href="energy.html"><span><i class="far fa-lightbulb"></i><br />Energy</span></a>
+
+      <a class="waste" href="waste.html"><span><i class="fas fa-dumpster"></i><br />Waste</span></a>
+      <button class="about">About</button>
+    </nav>
+    <div id="schoolinfo"></div>
+    <div id="dataentry">
+      <table class="edata first">
+        <thead>
+          <tr>
+            <th></th>
+            <td></td>
+            <th class="colhead">Natural Gas</th>
+            <td></td>
+            <th class="colhead">Electricity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rowLabel one">Select Unit Type</td>
+            <td class="tabedge"></td>
+            <td class="highlight one">
+              <form id="n_unit" class="radioVert">
+                <label for="n_therms">
+                  <input class="forcalc" type="radio" id="n_therms" name="n_unit" value="n_therms">Therms</label>
+                <label for="n_tcf">
+                  <input class="forcalc" type="radio" id="n_tcf" name="n_unit"
+                    value="n_tcf">Thousand<br />&nbsp;&nbsp;&nbsp;&nbsp;Cubic Feet </label>
+                <label for="n_dollars">
+                  <input class="forcalc" type="radio" id="n_dollars" name="n_unit" value="n_dollars">Dollars</label>
+              </form>
+            </td>
+            <td class="tabedge"></td>
+            <td class="highlight two">
+              <form id="e_unit" class="radioVert">
+                <label for="e_kwh">
+                  <input class="forcalc" type="radio" id="e_kwh" name="e_unit" value="e_kwh">Kilowatt
+                  Hours</label>
+                <label for="e_dollars">
+                  <input class="forcalc" type="radio" id="e_dollars" name="e_unit" value="e_dollars">Dollars</label>
+              </form>
+            </td>
+
+          </tr>
+          <tr class="bills two">
+            <td class="rowLabel two">Monthly Bill Data</td>
+            <td class="tabedge"></td>
+            <td class="highlight"><input class="forcalc" type="number" min="0" id="n_bill">
+            </td>
+            <td class="tabedge"></td>
+            <td class="highlight"><input class="forcalc" type="number" min="0" id="e_bill">
+            </td>
+
+          </tr>
+          <tr class="calcs three">
+            <td class="rowLabel three">Total CO2<br />Emission for Energy (lbs.)</td>
+            <td class="tabedge"></td>
+            <td>
+              <div class="backbox"><span class="calc" id="n_CO2"></span></div>
+            </td>
+            <td class="tabedge"></td>
+            <td>
+              <div class="backbox"><span class="calc" id="e_CO2"></span></div>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+      <table class="edata second">
+        <thead>
+          <tr>
+            <th class="hidable"></th>
+            <td></td>
+            <th class="colhead">Fuel Oil</th>
+            <td></td>
+            <th class="colhead">Propane</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rowLabel one hidable"><span>Select Unit Type</span></td>
+            <td class="tabedge"></td>
+            <td class="highlight one">
+              <form id="f_unit" class="radioVert">
+                <label for="f_gallons"><input class="forcalc" type="radio" id="f_gallons" name="f_unit"
+                    value="f_gallons">Gallons</label>
+                <label for="f_dollars"><input class="forcalc" type="radio" id="f_dollars" name="f_unit"
+                    value="f_dollars">Dollars</label>
+              </form>
+            </td>
+            <td class="tabedge"></td>
+            <td class="highlight two">
+              <form id="p_unit" class="radioVert">
+                <label for="p_gallons"><input class="forcalc" type="radio" id="p_gallons" name="p_unit"
+                    value="p_gallons">Gallons</label>
+                <label for="p_dollars"><input class="forcalc" type="radio" id="p_dollars" name="p_unit"
+                    value="p_dollars">Dollars</label>
+              </form>
+            </td>
+          </tr>
+          <tr class="bills two">
+            <td class="rowLabel two hidable"><span>Monthly Bill Data</span></td>
+            <td class="tabedge"></td>
+            <td class="highlight"><input class="forcalc" type="number" min="0" id="f_bill">
+            </td>
+            <td class="tabedge"></td>
+            <td class="highlight"><input class="forcalc" type="number" min="0" id="p_bill">
+            </td>
+          </tr>
+          <tr class="calcs three">
+            <td class="rowLabel three hidable"><span>Total CO2<br />Emission for Energy (lbs.)</span></td>
+            <td class="tabedge"></td>
+            <td>
+              <div class="backbox"><span class="calc" id="f_CO2"></span></div>
+            </td>
+            <td class="tabedge"></td>
+            <td>
+              <div class="backbox"><span class="calc" id="p_CO2"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <summary>
+      <h3>Carbon Footprint</h3>
+      <h4 class="annual">Energy CO2 Emissions (lbs.):<br /><span id="annual"></span></h4>
+      <h4 class="total">Total CO2 Emissions(lbs.):<br /><span id="current"></span></h4>
+      <button class="report">Display All Data</button>
+    </summary>
+    <div id="dialog">
+      <button class="aboutX">X</button>
+      <div>
+        <h2>Objective:</h2>
+        <p>Provide a web-based tool for MCPS schools to calculate their current carbon footprint based on individual
+          school
+          inputs.
+          This will allow the school administrators to create a baseline and track progress to mitigate their carbon
+          footprint.
+        </p>
+
+        <h2> What does this site do?</h2>
+        <p> This website is a Carbon Footprint Calculator for MCPS modeled along the lines of the EPA Carbon footprint
+          calculator.
+          This calculator estimates the carbon footprint attributable to each school’s activities such as transportation
+          services, energy consumption, and net waste generated.
+        </p>
+        <h2>Inputs Required</h2>
+
+        <h3>Carbon footprint from Transportation</h3>
+        <ol>
+          <li>Numbers of school buses used, and private cars used for carpools. </li>
+          <li> Miles driven per year by each bus and car. </li>
+        </ol>
+        <p style="margin-left:25px;">
+          Carbon emissions for buses =<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Miles driven each year x # of school buses) /Average mileage x emission
+          rate<br />
+          Carbon emissions for cars =<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Miles driven each year x # of cars * emission rate) converted to pounds
+          for CO2
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This computation factors in tailpipe emission, and not upstream
+          emissions.</p>
+
+        <h3>Carbon footprint from Energy Consumption</h3>
+        <ol>
+          <li> Monthly consumption for heating (Natural Gas or Fuel Oil or Electricity)</li>
+          <li> Monthly consumption for electricity (electricity or other)</li>
+        </ol>
+        <p style="margin-left:25px;">Carbon emission = Annual fuel consumption x emission rate</p>
+
+
+        <h3>Carbon footprint from Waste:</h3>
+        <ol>
+          <li> Annual waste generated for these categories - Recycle, Landfill, Combust, Compost, and Anaerobically
+            Digested
+          </li>
+        </ol>
+
+        <h3>How can schools reduce their carbon footprint?</h3>
+        <ol>
+          <li>Convert school buses to electric and encourage walkers. </li>
+          <li>Install solar panels.</li>
+          <li>Replace incandescent light bulbs with LED or other ENERGY STAR lights.</li>
+          <li>Turn up/down the AC and heating thermostat in the summer and winter months.</li>
+        </ol>
+
+        <h2>Resources</h2>
+        <ul>
+          <ul class="resources">MCPS
+            <li><a target="_blank" href="https://www.montgomerycountymd.gov/sws/footprint/">Montgomery County Carbon Footprint</a></li>
+            <li><a
+                target="_blank" href="https://www.montgomeryschoolsmd.org/boe/meetings/AUdocs/2012-13/2012-0910/091012%20Plan%20for%20Reducing%20and%20Reporting%20Carbon%20Footprint.pdf">Montgomery
+                County Public Schools Carbon Footprint Plan </a></li>
+          </ul>
+        </ul>
+        <ul>
+          <ul class="resources">EPA
+            <li><a target="_blank" href="https://www3.epa.gov/carbon-footprint-calculator/">EPA Carbon Footprint Calculator</a></li>
+            <li><a target="_blank" href="https://fueleconomy.gov/">Fuel Economy</a></li>
+            <li><a target="_blank" href="https://www.epa.gov/automotive-trends">EPA Automotive Trends Report</a></li>
+          </ul>
+        </ul>
+
+        <h3>About the Creator</h3>
+        <p> This website was developed by Rishi S. Iyer, a student at Thomas S. Wootton High School ('24) in the
+          Montgomery
+          County Public School (MCPS), Maryland.
+        </p>
+      </div>
+    </div>
+    <div id="homedialog">
+      <p>Are you sure you want to start over?</p>
+      <p>All of your data will be lost.</p>
+      <div id="homedialogbuttons">
+        <button id="startover">Start Over</button>
+        <i class="fas fa-question-circle question"></i>
+        <button id="cancel">Cancel</button>
+      </div>
+    </div>
+  </container>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/energy.js"></script>
+  <script src="assets/js/CO2byZip.js"></script>
+</body>
+
+</html>

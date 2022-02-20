@@ -1,0 +1,178 @@
+body {
+	background: rgb(95, 146, 223);
+	margin: 10px;
+	font-size: 18px;
+}
+container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#schoolinfo {
+	font-weight: bold;
+	color: black;
+	font-size: 1.8rem;
+	padding: 1.39rem;
+	text-align: center;
+	background: tan;
+	margin: 1.11rem;
+}
+
+#title_for_pdf {
+	opacity: 0;
+}
+.rowLabel {
+	text-align: right;
+	padding-right: .5rem;
+	background: wheat;
+	border: none;
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+
+div.reporter {
+	min-width: 6rem;
+	margin-left: 20px;
+	background: white;
+	order: 1px solid black;
+	padding: 2px;
+}
+div.novalue.reporter {
+	background-color: rgb(156, 156, 156);
+}
+
+.edata .rowLabel {
+	width: 12rem !important;
+}
+.calc {
+	border: 2px solid black;
+	color: white;
+	background: rgba(169, 169, 169, 0.301);
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+.calc > span {
+	margin-left: 5px;
+	width: 80px;
+}
+
+
+.tabedge {
+	width: 2rem;
+}
+
+
+.wdata th.dataLabel {
+	background: lightgrey;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.wdata th.colHead {
+	background: wheat;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+
+.wdata td {
+	width: 50px;
+	padding: 4px;
+}
+
+
+.edata {
+	border-collapse: separate;
+	border-spacing: 0 5px;
+}
+
+.wdata {
+	border-collapse: separate;
+	border-spacing: 0 10px;
+}
+.tdata {
+	border-collapse: separate;
+	border-spacing: 0 25px;
+}
+
+th {
+	text-align: center;
+}
+.pushDown {
+	margin-top: 2rem;
+}
+
+
+
+.unit {
+	background: white;
+	font-style: bold;
+}
+.detailColHeading {
+	min-width: 8rem;
+	text-align: center;
+	font-size: 1.5rem;
+	background-color: rgb(241, 226, 199);
+	
+}
+
+.pageHeading {
+	background: rgb(77, 182, 182);
+	text-align: center;
+	font-size: 2rem;
+	width: 90%;
+}
+.topMargin {
+	margin-top: 5rem;
+}
+.subHeading {
+	width: 10rem;
+	background: rgb(151, 126, 81);
+	text-align: center;
+	font-size: 1.6rem;
+	color: white;
+	margin: 0 auto;
+}
+
+.edata td {
+	padding: 0 5px;
+}
+
+table {
+	border: 2px solid white;
+	padding: 1rem;
+	align-self: center;
+}
+
+.shift {
+	position: relative;
+	top: 4rem;
+	left: -15rem;
+}
+	
+#counts {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: 2px solid white;
+	padding: .8rem;
+	margin-top: 2rem;
+	width: 90%;
+}
+#counts > div > .count {
+	background-color: white;
+	margin-left: 1rem;
+	text-align: center;
+	padding: .2rem 1rem .2rem 0;
+	
+}
+#counts .rowLabel {
+	padding: .3rem;
+}
+
+@media (max-width: 750px) {
+	body {
+		font-size: 10px;
+	}
+}

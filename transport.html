@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Prevent Caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Transportation</title>
+  <link rel="stylesheet" type="text/css" href="assets/styles/transport.css" />
+  <link rel="stylesheet" type="text/css" href="assets/styles/common.css" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script src="https://kit.fontawesome.com/1824f337f5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <container>
+    <nav>
+      <button class="home">Home</button>
+      <a class="transport" href="transport.html">
+        <span><i class="fas fa-bus"></i><br />Transportation</span>
+      </a>
+      <a class="energy" href="energy.html"><span><i class="far fa-lightbulb"></i><br />Energy</span></a>
+
+      <a class="waste" href="waste.html"><span><i class="fas fa-dumpster"></i><br />Waste</span></a>
+      <button class="about">About</button>
+    </nav>
+    <div id="schoolinfo"></div>
+
+    <div id="dataentry">
+
+      <div class="buses">
+        <span class="shift">Buses</span>
+        <table class="tdata">
+          <thead>
+            <tr>
+              <th></th>
+              <td class="tabedge"></td>
+              <th>Gasoline</th>
+              <td class="tabedge"></td>
+              <th>Diesel</th>
+              <td class="tabedge"></td>
+              <th>Electric</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="buses">
+              <td class="rowLabel">Number of Buses Used</td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="500" id="b_g_count" class="countClass" inputmode="numeric">
+              </td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="500" id="b_d_count" class="countClass">
+              </td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="500" id="b_e_count" class="countClass">
+              </td>
+            </tr>
+            <tr>
+              <td class="rowLabel">Annual Miles Driven per Bus</td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="100000" id="b_g_miles"></td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="1000000" id="b_d_miles"></td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="1000000" id="b_e_miles"></td>
+            </tr>
+            <tr>
+              <td class="rowLabel">Total CO2 Emission for Buses (lbs.)</td>
+              <!-- <td>(Buses * Miles Driven / 6 for Gas, 7 for Diesel * 19.36 lbs/CO2 for Gas, 22.51 lbs/CO2 for Diesel) </td> -->
+              <td class="tabedge"></td>
+              <td class="calc"><span id="b_g_CO2"></span></td>
+              <td class="tabedge"></td>
+              <td class="calc"><span id="b_d_CO2"></span></td>
+              <td class="tabedge"></td>
+              <td class="calc"><span id="b_e_CO2"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="carpools">
+        <span>Carpools</span>
+        <table class="tdata">
+          <thead>
+            <tr>
+              <th></th>
+              <td class="tabedge"></td>
+              <th>Gasoline</th>
+              <td class="tabedge"></td>
+              <th>Hybrid/PHEV</th>
+              <td class="tabedge"></td>
+              <th>Electric</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="cars">
+              <td class="rowLabel">&nbsp;Number of Cars Used</td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="500" id="c_g_count" class="countClass"></td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="500" id="c_h_count" class="countClass"></td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="500" id="c_e_count" class="countClass"></td>
+            </tr>
+            <tr>
+              <td class="rowLabel">Annual Miles Driven per Car</td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="1000000" id="c_g_miles"></td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="1000000" id="c_h_miles"></td>
+              <td class="tabedge"></td>
+              <td><input type="number" min="0" max="1000000" id="c_e_miles"></td>
+            </tr>
+            <tr>
+              <td class="rowLabel">&nbsp;Total CO2 Emission for Cars (lbs.)</td>
+              <!-- <td>(Buses * Miles Driven / 6 for Gas, 7 for Diesel * 19.36 lbs/CO2 for Gas, 22.51 lbs/CO2 for Diesel) </td> -->
+              <td class="tabedge"></td>
+              <td class="calc"><span id="c_g_CO2"></span></td>
+              <td class="tabedge"></td>
+              <td class="calc"><span id="c_h_CO2"></span></td>
+              <td class="tabedge"></td>
+              <td class="calc"><span id="c_e_CO2"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <table id="counts">
+      <tbody>
+        <tr>
+          <th># of Students</th>
+          <td><input type="number" min="0" max="500" id="students"></td>
+        </tr>
+        <tr>
+          <th># Carpooling</th>
+          <td><input type="number" min="0" max="500" id="carpool"></td>
+        </tr>
+        <tr>
+          <th># of Walking</th>
+          <td><input type="number" min="0" max="500" id="walkers"></td>
+        </tr>
+      </tbody>
+
+    </table>
+    <summary>
+      <h3>Carbon Footprint</h3>
+      <h4 class="annual">Transportation CO2 Emissions (lbs.):<br /><span id="annual"></span></h4>
+      <h4 class="total">Total CO2 Emissions(lbs.):<br /><span id="current"></span></h4>
+      <button class="report">Display All Data</button>
+    </summary>
+    <div id="dialog">
+      <button class="aboutX">X</button>
+      <div><h2>Objective:</h2>
+        <p>Provide a web-based tool for MCPS schools to calculate their current carbon footprint based on individual
+          school
+          inputs.
+          This will allow the school administrators to create a baseline and track progress to mitigate their carbon
+          footprint.
+        </p>
+
+        <h2> What does this site do?</h2>
+        <p> This website is a Carbon Footprint Calculator for MCPS modeled along the lines of the EPA Carbon footprint
+          calculator.
+          This calculator estimates the carbon footprint attributable to each school’s activities such as transportation
+          services, energy consumption, and net waste generated.
+        </p>
+        <h2>Inputs Required</h2>
+
+        <h3>Carbon footprint from Transportation</h3>
+        <ol>
+          <li>Numbers of school buses used, and private cars used for carpools. </li>
+          <li> Miles driven per year by each bus and car. </li>
+        </ol>
+        <p style="margin-left:25px;">
+          Carbon emissions for buses =<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Miles driven each year x # of school buses) /Average mileage x emission
+          rate<br />
+          Carbon emissions for cars =<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Miles driven each year x # of cars * emission rate) converted to pounds
+          for CO2
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This computation factors in tailpipe emission, and not upstream
+          emissions.</p>
+
+        <h3>Carbon footprint from Energy Consumption</h3>
+        <ol>
+          <li> Monthly consumption for heating (Natural Gas or Fuel Oil or Electricity)</li>
+          <li> Monthly consumption for electricity (electricity or other)</li>
+        </ol>
+        <p style="margin-left:25px;">Carbon emission = Annual fuel consumption x emission rate</p>
+
+
+        <h3>Carbon footprint from Waste:</h3>
+        <ol>
+          <li> Annual waste generated for these categories - Recycle, Landfill, Combust, Compost, and Anaerobically
+            Digested
+          </li>
+        </ol>
+
+        <h3>How can schools reduce their carbon footprint?</h3>
+        <ol>
+          <li>Convert school buses to electric and encourage walkers. </li>
+          <li>Install solar panels.</li>
+          <li>Replace incandescent light bulbs with LED or other ENERGY STAR lights.</li>
+          <li>Turn up/down the AC and heating thermostat in the summer and winter months.</li>
+        </ol>
+
+        <h2>Resources</h2>
+        <ul>
+          <ul class="resources">MCPS
+            <li><a target="_blank" href="https://www.montgomerycountymd.gov/sws/footprint/">Montgomery County Carbon Footprint</a></li>
+            <li><a
+                target="_blank" href="https://www.montgomeryschoolsmd.org/boe/meetings/AUdocs/2012-13/2012-0910/091012%20Plan%20for%20Reducing%20and%20Reporting%20Carbon%20Footprint.pdf">Montgomery
+                County Public Schools Carbon Footprint Plan </a></li>
+          </ul>
+        </ul>
+        <ul>
+          <ul class="resources">EPA
+            <li><a target="_blank" href="https://www3.epa.gov/carbon-footprint-calculator/">EPA Carbon Footprint Calculator</a></li>
+            <li><a target="_blank" href="https://fueleconomy.gov/">Fuel Economy</a></li>
+            <li><a target="_blank" href="https://www.epa.gov/automotive-trends">EPA Automotive Trends Report</a></li>
+          </ul>
+        </ul>
+
+        <h3>About the Creator</h3>
+        <p> This website was developed by Rishi S. Iyer, a student at Thomas S. Wootton High School ('24) in the
+          Montgomery
+          County Public School (MCPS), Maryland.
+        </p>>
+    </div>
+    </div>
+    <div id="homedialog">
+      <p>Are you sure you want to start over?</p>
+      <p>All of your data will be lost.</p>
+      <div id="homedialogbuttons">
+        <button id="startover">Start Over</button>
+        <i class="fas fa-question-circle question"></i>
+        <button id="cancel">Cancel</button>
+      </div>
+    </div>
+  </container>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/transport.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+body {
+	background: rgb(95, 146, 223);
+	font-size: 18px;
+}
+container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 30px;
+}
+
+container input {
+	margin-right: 0.27rem;
+}
+
+
+.far,
+.fas {
+	color: yellow;
+}
+
+#dataentry {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: -1em 0 0 0;
+}
+#dataentry > * {
+	/* allows top margin for wrapped items */
+	margin-top: 1em;
+}
+
+
+.rowLabel {
+	text-align: right;
+	padding-right: 0.55rem;
+	border: 2px solid black;
+	background: wheat;
+	border: none;
+	font-weight: bold;
+}
+
+.wdata thead th {
+	font-size: 1.5rem;
+}
+
+
+.wdata td > input {
+	margin-left: 0.27rem;
+}
+
+.wdata th.dataLabel {
+	background: lightgrey;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.wdata th.colHead {
+	background: wheat;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.wdata input {
+	margin-left: 1.67rem;
+}
+
+.wdata td {
+	width: 2.77rem;
+	padding: 0.22rem;
+}
+
+.wdata {
+	border-collapse: separate;
+	border-spacing: 0.55rem .8rem;
+}
+
+.wdata td {
+	border: 1px solid rgb(11, 37, 53);
+}
+th {
+	text-align: center;
+}
+
+input:disabled {
+	background: rgba(177, 147, 147, 0.6);
+}
+
+
+
+
+.wdata th.rowLabel {
+	min-width: 6rem !important;
+}
+
+.waste {
+	font-weight: bold;
+	border: dotted;
+	background-color: blue;
+}
+
+.waste {
+	font-weight: bold;
+	border: dotted;
+	background-color: blue;
+}
+input[type="number"]:hover::-webkit-inner-spin-button {
+	width: 0.9rem;
+	height: 1.8rem;
+}
+
+.hidable {
+	display:none;
+}
+
+@media (max-width: 1069px) {
+	body {
+		font-size: 16px;
+	}
+	.hidable {
+		display:block;
+	}
+
+	.rowLabel {
+		padding: 5px;
+	}
+}
